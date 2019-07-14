@@ -1,4 +1,3 @@
-const fs = require('fs')
 const express = require('express')
 const formidable = require('formidable')
 const app = express()
@@ -21,3 +20,4 @@ app.post('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 app.listen(3000)
+console.log("Listening")
