@@ -1,4 +1,6 @@
-const http = require('http')
-const routes = require('./routes.js')
+const express = require('express')
+const app = express()
 
-http.createServer(routes.handleRequest).listen(3000)
+app.get('/', (req, res) => {
+    
+})
