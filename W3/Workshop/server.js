@@ -1,14 +1,13 @@
-const app = require('express')()
-//const routes = require('./')
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+const path = require('path')
 
-app.listen(3000)
+require('./routes.js')(app, path)
 
-app.get('/about', (req, res) => {
-    console.log(req.url)
-    let filepath = path.resolve('./www/mypage.html')
-    res.sendFile(filepath)
+app.use(bodyParser.json())
+
+app.listen(3000, '127.0.0.1', () => {
+    console.log('Server has been started at localhost:3000')
 })
 
-app.get('*', (req, res) => {
-    res.send('Error')
-})

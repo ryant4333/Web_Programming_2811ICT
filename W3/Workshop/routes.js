@@ -1,8 +1,12 @@
-const routes = require('express').Router()
 
+module.exports = (app, path) => {
+    app.get('/mypage', (req, res) => {
+        let filepath = path.resolve('./www/mypage.html')
+        res.sendFile(filepath)
+    })
 
-routes.get('/', (req, res) => {
-    res.sendFile('/www/mypage.html')
-})
-
-module.exports = routes
+    app.get('/', (req, res) => {
+        let filepath = path.resolve('./www/login.html')
+        res.sendFile(filepath)
+    })
+}
