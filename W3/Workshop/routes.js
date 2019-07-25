@@ -7,6 +7,8 @@ module.exports = (app, path) => {
 
     app.get('/', (req, res) => {
         let filepath = path.resolve('./www/login.html')
+        console.log("Connection detected")
         res.sendFile(filepath)
     })
+
 }
