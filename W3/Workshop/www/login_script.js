@@ -14,14 +14,16 @@ $( document ).ready(() => {
         $.ajax({
             type : "POST",
             contentType : "application/json",
-            url : window.loaction + "api/login",
+            url : window.location + "api/login",
             data : JSON.stringify(formData),
             dataType: 'json',
             success : (customer) => {
                 if (customer.valid == true) {
+                    console.log("good")
                     $("#loginform").removeClass("fail")
                     $("#loginform").addClass("success")
                 } else {
+                    console.log("bad")
                     $("#loginform").removeClass("success")
                     $("#loginform").addClass("fail")
                 }
