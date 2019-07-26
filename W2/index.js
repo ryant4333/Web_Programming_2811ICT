@@ -1,4 +1,4 @@
-console.log("Hello world")
+console.log("Merge conflict")
 
 func = () => {
     return 5+10
