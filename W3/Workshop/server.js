@@ -15,6 +15,8 @@ app.listen(3000, '127.0.0.1', () => {
     console.log('Server has been started at localhost:3000')
 })
 
+let user_list = {"users": [{"email":"RyanCTaylor95@gmail.com", "upwd":"1234"}, {"email":"abc@com.au", "upwd":"123"}]}
+
 app.post('/api/login', (req, res) => {
     if (!req.body) {
         return res.sendStatus(400)
@@ -22,10 +24,13 @@ app.post('/api/login', (req, res) => {
     var customer = {}
     customer.email = req.body.email
     customer.upwd = req.body.upwd
-    if (req.body.email == "abc@com.au" && req.body.upwd == "123"){
-        customer.valid = true
-    } else {
-        customer.valid = false
+    for (i in user_list.users){
+        if(user_list.users[i].email == req.body.email && user_list.users[i].upwd == req.body.upwd) {
+            customer.valid=true
+        }
+    }
+    if (!customer) {
+        customer.valid=false
     }
     res.send(customer)
 })
