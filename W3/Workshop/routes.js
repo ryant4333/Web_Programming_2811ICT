@@ -10,5 +10,4 @@ module.exports = (app, path) => {
         console.log("Connection detected")
         res.sendFile(filepath)
     })
-
 }
