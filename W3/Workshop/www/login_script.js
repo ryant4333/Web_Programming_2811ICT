@@ -20,12 +20,12 @@ $( document ).ready(() => {
             success : (customer) => {
                 if (customer.valid == true) {
                     console.log("good")
-                    $("#loginform").removeClass("fail")
-                    $("#loginform").addClass("success")
+                    $("#errormsg").removeClass("showmessage")
+                    $("#errormsg").addClass("hidemessage")
                 } else {
                     console.log("bad")
-                    $("#loginform").removeClass("success")
-                    $("#loginform").addClass("fail")
+                    $("#errormsg").removeClass("hidemessage")
+                    $("#errormsg").addClass("showmessage")
                 }
                 $("#postResultDiv").html("<p> Success <br> Email Address: " + customer.email + "<br>" +
                 "Password:" + customer.upwd + "</br> Valid User: " + customer.valid + "</p>")
