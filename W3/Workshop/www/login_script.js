@@ -6,6 +6,10 @@ $( document ).ready(() => {
         ajaxPost()
     })
 
+    function pageRedirect() {
+        window.location.pathname = '/mypage.html'
+    }
+
     function ajaxPost() {
         let formData = {
             email : $("#email").val(),
@@ -20,15 +24,12 @@ $( document ).ready(() => {
             success : (customer) => {
                 if (customer.valid == true) {
                     console.log("good")
-                    $("#errormsg").removeClass("showmessage")
-                    $("#errormsg").addClass("hidemessage")
+                    pageRedirect()
                 } else {
                     console.log("bad")
                     $("#errormsg").removeClass("hidemessage")
                     $("#errormsg").addClass("showmessage")
                 }
-                $("#postResultDiv").html("<p> Success <br> Email Address: " + customer.email + "<br>" +
-                "Password:" + customer.upwd + "</br> Valid User: " + customer.valid + "</p>")
             },
             error : function(e) {
                 alert("Error!")
