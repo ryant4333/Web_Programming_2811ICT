@@ -1,0 +1,13 @@
+.del {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+    padding: 5px 9px;
+}
+
+.is-complete {
+    text-decoration: line-through;
+}
