@@ -6,10 +6,6 @@ $( document ).ready(() => {
         ajaxPost()
     })
 
-    function pageRedirect() {
-        window.location.pathname = '/mypage.html'
-    }
-
     function ajaxPost() {
         let formData = {
             email : $("#email").val(),
@@ -21,15 +17,18 @@ $( document ).ready(() => {
             url : window.location + "api/login",
             data : JSON.stringify(formData),
             dataType: 'json',
-            success : (customer) => {
-                if (customer.valid == true) {
+            success : (auth) => {
+                if (auth.ok == true) {
                     console.log("good")
-                    pageRedirect()
+                    $("#errormsg").removeClass("showmessage")
+                    $("#errormsg").addClass("hidemessage")
                 } else {
                     console.log("bad")
                     $("#errormsg").removeClass("hidemessage")
                     $("#errormsg").addClass("showmessage")
                 }
+                /*$("#postResultDiv").html("<p> Success <br> Email Address: " + customer.email + "<br>" +
+                "Password:" + customer.upwd + "</br> Valid User: " + customer.valid + "</p>") */
             },
             error : function(e) {
                 alert("Error!")
