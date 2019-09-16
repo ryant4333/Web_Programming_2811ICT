@@ -1,5 +1,5 @@
 exports.insert = (req, res) => {
-    MongoClient.connect(url, { useNewUrlParser: true}, (err, client) => {
+    MongoClient.connect(config.url, { useNewUrlParser: true}, (err, client) => {
         if (err) throw err;
         let db = client.db("dbName");
         let doc = req.body;
