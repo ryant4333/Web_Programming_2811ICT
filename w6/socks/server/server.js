@@ -8,6 +8,8 @@ const server = require('./listen.js');
 
 const port = 3000;
 
+app.use(cors());
+
 sockets.connect(io, port);
 
 server.listen(http, port);
